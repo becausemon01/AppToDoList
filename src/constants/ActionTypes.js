@@ -1,0 +1,9 @@
+export const LIST_ALL = 'LIST_ALL';
+export const ADD_TASK = 'ADD_TASK';
+export const CREATE_FORM = 'CREATE_FORM';
+export const SHOW_FORM = 'SHOW_FORM';
+export const CLOSE_FORM = 'CLOSE_FORM';
+export const CLOSE_FORM_UPDATE = 'CLOSE_FORM_UPDATE';
+export const DELETE_TASK = 'DELETE_TASK';
+export const UPDATE_TASK = 'UPDATE_TASK';
+export const SEARCH = 'SEARCH';
