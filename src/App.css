@@ -58,9 +58,9 @@ body {
   height: 44px;
   top: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 200;
   display: flex;
- 
+
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -72,8 +72,8 @@ body {
   width: 100vw;
   -webkit-transition: height 200ms ease-in;
   transition: height 200ms ease-in;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 a:-webkit-any-link {
   color: -webkit-link;
@@ -83,7 +83,7 @@ a:-webkit-any-link {
 
 #top_bar_inner {
   display: inline-block;
-  vertical-align:middle; 
+  vertical-align: middle;
   height: 100%;
   width: 992px;
   padding-left: 13px;
@@ -99,24 +99,24 @@ a:-webkit-any-link {
   float: left;
   padding-top: 7px;
 }
-#logo svg{
+#logo svg {
   width: 24px;
   height: 24px;
   padding: 2px;
   color: white;
 }
-#logo svg:hover{
-  background-color: rgba(255,255,255,0.2);
+#logo svg:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 #top_icons {
   border: 0;
-  float:right;
+  float: right;
   white-space: nowrap !important;
   padding-right: 12px;
   height: 100%;
 }
 
-#top_icons>span{
+#top_icons > span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -127,20 +127,20 @@ a:-webkit-any-link {
   margin-left: 10px;
   cursor: pointer;
 }
-#top_icons>span svg {
+#top_icons > span svg {
   color: white;
 }
 #top_icons #quick_add_task {
   color: white;
   position: relative;
 }
-#quick_add_task svg:hover{
-  background-color: rgba(255,255,255,0.2);
+#quick_add_task svg:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 #top_completed_holder {
   position: relative;
 }
-#top_completed_holder a{
+#top_completed_holder a {
   color: gray;
   white-space: nowrap;
   text-decoration: none;
@@ -164,14 +164,14 @@ a:-webkit-any-link {
   line-height: 1;
   color: white;
 }
-#top_completed_holder a:hover{
-  background-color: rgba(255,255,255,0.2);
+#top_completed_holder a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
-#top_notifications svg:hover{
-  background-color: rgba(255,255,255,0.2);
+#top_notifications svg:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
-#top_gear svg:hover{
-  background-color: rgba(255,255,255,0.2);
+#top_gear svg:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 #quick_find {
@@ -179,7 +179,7 @@ a:-webkit-any-link {
   margin-left: 292px;
   padding-top: 6px;
 }
-#quick_find svg{
+#quick_find svg {
   color: white;
 }
 
@@ -189,8 +189,8 @@ a:-webkit-any-link {
   margin-top: 4px;
   margin-left: 3px;
   cursor: text !important;
-  -webkit-transition: opacity .1s ease-in;
-  transition: opacity .1s ease-in;
+  -webkit-transition: opacity 0.1s ease-in;
+  transition: opacity 0.1s ease-in;
 }
 .quick_find {
   border: 1px solid transparent !important;
@@ -198,15 +198,15 @@ a:-webkit-any-link {
   padding: 5px;
   width: 300px;
   box-sizing: border-box;
-  outline:0;
+  outline: 0;
   color: white;
   padding-left: 30px;
   margin-top: 2px;
   background: 0;
-  transition: width .2s ease-in;
+  transition: width 0.2s ease-in;
 }
-.quick_find:hover li{
-  background-color: rgba(255,255,255,0.2);
+.quick_find:hover li {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 ::-webkit-input-placeholder {
@@ -239,13 +239,11 @@ a:-webkit-any-link {
   overflow-y: hidden;
   border-right: 1px solid #f1f1f1;
   background-color: #fafafa;
-  
 }
 
 #list_holder {
   width: 265px;
   padding-bottom: 30px;
-  
 }
 #top_filters {
   margin: 0;
@@ -258,8 +256,8 @@ a:-webkit-any-link {
   list-style: none;
   cursor: pointer;
   padding: 5px 16px 5px 5px;
-  
-  transition: color .1s ease-in,background-color .1s ease-in;
+
+  transition: color 0.1s ease-in, background-color 0.1s ease-in;
   line-height: 1.25;
   display: flex;
   border-radius: 3px;
@@ -267,12 +265,12 @@ a:-webkit-any-link {
   -ms-flex-align: center;
   align-items: center;
 }
-#top_filters li:hover{
+#top_filters li:hover {
   background-color: #fff;
   font-weight: bold;
 }
-#filter_inbox .item_icon svg{
-  color: #246fe0
+#filter_inbox .item_icon svg {
+  color: #246fe0;
 }
 #top_filters li .item_icon {
   width: 28px;
@@ -307,16 +305,15 @@ small {
   font-size: 11px;
   margin-left: 5px;
 }
-#top_panel{
+#top_panel {
   padding-left: 0px;
 }
-#top_panel li{
+#top_panel li {
   display: flex;
   font-size: 20px;
-  
+
   width: 100%;
   padding: 5px 5px 5px 5px;
-
 }
 .panel_toggle {
   cursor: pointer;
@@ -326,23 +323,21 @@ small {
   border: hidden;
   background: 0;
 }
-.panel:hover{
-  background-color: gainsboro; 
+.panel:hover {
+  background-color: gainsboro;
   border: hidden;
-  
 }
 .panel_toggle_icon {
   width: 190px;
 
   font-weight: 600;
 }
-.panel_toggle_icon svg{
-
-   float: left;
+.panel_toggle_icon svg {
+  float: left;
 }
-.panel_toggle_icon span{
-   float: left;
-   padding-left: 10px;
+.panel_toggle_icon span {
+  float: left;
+  padding-left: 10px;
 }
 .adder_icon {
   font-size: 20px;
@@ -350,15 +345,14 @@ small {
   background: 0;
 }
 
-
 #content {
   min-height: 380px;
   background-color: #fff;
   margin-left: 266px;
   border-right: 1px solid #f1f1f1;
   min-height: calc(100vh);
-  -webkit-transition: opacity 250ms cubic-bezier(0.4,0,0.6,1);
-  transition: opacity 250ms cubic-bezier(0.4,0,0.6,1);
+  -webkit-transition: opacity 250ms cubic-bezier(0.4, 0, 0.6, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 #editor {
@@ -368,14 +362,16 @@ small {
   padding-top: 80px;
   padding-bottom: 84px;
 }
-#agenda_view .section_day, #agenda_view .section_overdue {
+#agenda_view .section_day,
+#agenda_view .section_overdue {
   margin-bottom: 40px;
 }
 .section_header {
   margin: 0 0 0 0 !important;
   padding: 0 30px 6px 0 !important;
 }
-.section_header, .section_header a {
+.section_header,
+.section_header a {
   font-size: 20px !important;
   font-weight: 600;
 }
@@ -393,10 +389,9 @@ small {
   line-height: 3em;
   margin-left: -7px;
 }
-.section_header a{
+.section_header a {
   color: black;
   text-decoration: none;
-
 }
 .section_header small {
   color: gray;
@@ -456,42 +451,48 @@ a.action {
   line-height: 17px;
   border: solid 1px transparent;
   border-radius: 3px;
-  
 }
 
-li.listTask{
+li.listTask {
+  margin-left: -35px;
   background-color: #246fe0;
   background: none !important;
   padding: 4px !important;
   margin-bottom: 9px;
 }
 
-#editor li.listTask form{
+li.listTaskUpdate {
+  background-color: #246fe0;
+  background: none !important;
+  padding: 4px !important;
+  margin-bottom: 9px;
+  margin-left: -16px;
+  margin-top: -20px;
+}
+#editor li.listTask form {
   margin-top: 1px;
   /* margin-right: 28px; */
 }
 
-li.listTask .listTask_editor{
+li.listTask .listTask_editor {
   width: auto;
-
 }
 
- .listTask_top{
+.listTask_top {
   display: flex;
   border: 1px solid #ddd;
   border-radius: 3px;
   border-collapse: separate !important;
   margin-bottom: 6px;
 }
- 
+
 .listTask_input {
-    
-    line-height: 21px;
-    flex-grow: 1;
-    border: 0;
-    outline: 0;
-    border-right: 1px solid #ddd;
-    word-break: break-word;
+  line-height: 21px;
+  flex-grow: 1;
+  border: 0;
+  outline: 0;
+  border-right: 1px solid #ddd;
+  word-break: break-word;
 }
 
 .lst_input {
@@ -503,7 +504,20 @@ li.listTask .listTask_editor{
   margin-top: 2px;
   color: #202020;
   box-sizing: border-box;
-  transition: width .2s ease-in;
+  transition: width 0.2s ease-in;
+  border: 1px solid transparent !important;
+}
+
+.lst_input1 {
+  font-size: 14px;
+  outline: 0;
+  width: 450px;
+  padding: 5px;
+  border-radius: 3px;
+  margin-top: 2px;
+  color: #202020;
+  box-sizing: border-box;
+  transition: width 0.2s ease-in;
   border: 1px solid transparent !important;
 }
 .listTask_date {
@@ -512,7 +526,7 @@ li.listTask .listTask_editor{
 
 .btn_date {
   width: 128px;
-  align-items:flex-end;
+  align-items: flex-end;
   outline: 0;
 }
 
@@ -528,7 +542,7 @@ li.listTask .listTask_editor{
 }
 
 .iteam_actions {
-  float:right;
+  float: right;
   display: flex;
   height: 24px;
   flex-shrink: 0;
@@ -539,24 +553,23 @@ li.listTask .listTask_editor{
   display: inline-block;
   color: gray;
   cursor: pointer;
-  
 }
 .tooltip_warper {
   display: inline-block;
-    max-width: 100%;
-    cursor: unset;
-    margin-left: 12px;
+  max-width: 100%;
+  cursor: unset;
+  margin-left: 12px;
 }
 
 button {
-    font-size: 13px;
-    color: #202020;
-    cursor: pointer;
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    outline: 0;
+  font-size: 13px;
+  color: #202020;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  outline: 0;
 }
 
 /* button:disabled {
@@ -566,35 +579,36 @@ button {
   cursor: pointer;
   margin-right: 5px;
 
-    background: none;
-    background-color: #db4c3f;
-    color: #ffffff !important;
-    text-shadow: none;
-    border: 1px solid transparent;
+  background: none;
+  background-color: #db4c3f;
+  color: #ffffff !important;
+  text-shadow: none;
+  border: 1px solid transparent;
 
-    font-weight: bold;
-    font-size: 13px !important;
-    line-height: 17px;
-    padding: 6px 12px 7px 12px;
-    position: relative;
-    display: inline-block;
-    white-space: nowrap;
-    border-radius: 3px !important;
+  font-weight: bold;
+  font-size: 13px !important;
+  line-height: 17px;
+  padding: 6px 12px 7px 12px;
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 3px !important;
 }
 
-.item_editor_submit:hover{
+.item_editor_submit:hover {
   border: solid 1px black;
 }
 .cancle {
-    color: #555;
-    cursor: pointer;
-    font-size: 13px;
-    padding: 2px 9px;
-    white-space: nowrap;
-    margin-left: 5px;
+  color: #555;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 2px 9px;
+  white-space: nowrap;
+  margin-left: 5px;
 }
 
-.cancel:hover, .cancel_link:hover {
+.cancel:hover,
+.cancel_link:hover {
   text-decoration: underline;
 }
 ul {
@@ -604,24 +618,25 @@ ul {
 /* ----------------LIST TASK------------*/
 
 .task_item {
-  
   padding-right: 40px;
   padding: 0 40px 0 0;
   font-size: 14px;
   position: relative;
   border-radius: 3px;
+  margin-left: -35px;
+  display: flex;
 }
 .task_item_detail {
+  flex-grow: 1;
   display: flex;
   padding: 10px 0;
-  font-size: 14px;
+  font-size: 20px;
   border-bottom: 1px solid #f0f0f0;
   line-height: 21px;
 }
 
- .checker {
-  padding-right: 1em;
-  
+.checker {
+  padding-right: 15px;
 }
 
 .checkbox {
@@ -652,6 +667,7 @@ ul {
   user-select: text !important;
   line-height: 21px;
   position: relative;
+  margin-top: 2px;
 }
 .content_task_text {
   cursor: text;
@@ -673,27 +689,24 @@ ul {
   margin-left: 0px;
   width: 300px;
   margin-top: 9px;
-  border: 1px solid rgba(255,255,255,0.2);
-  -moz-box-shadow: 0px 3px 3px 3px #666;
-  -webkit-box-shadow: 0px 3px 3px 3px #666;
-  box-shadow: 0px 3px 3px 3px #666;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow: 0px 3px 6px 0px #666;
   border-radius: 3px;
 }
-.list_search li{
+.list_search li {
   background-color: white;
   margin-left: -40px;
   width: 300px;
   padding-top: -2px;
-  
 }
 
 .list_search_detail {
   display: flex;
   font-size: 14px;
-  
+
   line-height: 21px;
   padding: -2px 10px 10px 10px;
-  
 }
 
 .content_search {
@@ -704,7 +717,6 @@ ul {
   padding-left: -10px;
   -webkit-user-select: text !important;
   user-select: text !important;
-  
 }
 
 .checkbox1 {
@@ -742,7 +754,7 @@ ul {
   margin-right: 5px;
   margin-top: -1px;
   font-size: 14px;
-  color:blue;
+  color: blue;
 }
 /*-----------------Edit---Task-----------------------------77777777777777777777777777777777777777777777-*/
 .display {
@@ -751,22 +763,24 @@ ul {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: gray;
-  background: rgba(0,0,0,0.5);
+  animation: fadein 0.2s;
   z-index: 201;
-  animation: fadein .2s;
+  background: gray;
+  overflow: auto;
+  /* opacity: 0.6; */
 }
 
 .modal_edit_task {
   width: 100%;
+  background: 0;
   background-color: white;
   max-width: 650px;
   border-radius: 10px;
   max-height: 960px;
-  left: 25%;
+  left: 30%;
   top: 5%;
   margin: 0;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
   height: calc(100vh - 2 * 20px);
   position: absolute;
   padding: 0;
@@ -777,11 +791,9 @@ ul {
   box-sizing: border-box;
   height: 100%;
   padding: 20px 24px;
-  
-  
 }
 .item_detail_header {
-  padding-bottom: .75em;
+  padding-bottom: 0.75em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -817,7 +829,7 @@ button {
 
 .item_overview {
   display: flex;
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
   flex-shrink: 0;
 }
 
@@ -835,19 +847,28 @@ button {
   color: gray;
 }
 
-.item_checkbox svg{
+.item_checkbox svg {
   border: 1px solid transparent;
   height: 16px;
   width: 16px;
   margin-left: -8px;
-  -webkit-transition: opacity 150ms cubic-bezier(0.4,0,1,1);
-  transition: opacity 150ms cubic-bezier(0.4,0,1,1);
+  -webkit-transition: opacity 150ms cubic-bezier(0.4, 0, 1, 1);
+  transition: opacity 150ms cubic-bezier(0.4, 0, 1, 1);
   margin-top: -8px;
   pointer-events: none;
   opacity: 0;
 }
 
-.item_overview button:hover svg{
+.item_checkbox:hover {
+  background-color: #eee;
+  z-index: 400;
+}
+
+.checker div:hover svg {
+  opacity: 1;
+}
+
+.item_overview button:hover svg {
   opacity: 1;
 }
 
@@ -880,7 +901,7 @@ button {
   overflow: auto;
 }
 
-.item_overview_sub>* {
+.item_overview_sub > * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -896,8 +917,8 @@ button {
   border: 1px solid #ccc;
   border-radius: 5px;
   color: #555;
-  -webkit-transition: background-color 300ms cubic-bezier(0.4,0,0.2,1);
-  transition: background-color 300ms cubic-bezier(0.4,0,0.2,1);
+  -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .item_due_selector {
@@ -972,4 +993,145 @@ button {
   font-weight: bold;
   color: #202020;
   border-bottom: solid 1px #202020;
+}
+
+.checkbox svg:hover {
+  opacity: 1;
+}
+
+/*-------------------------------------------Drag, Drop and menu for task-----------------------*/
+
+/* .task_item:hover {
+  opacity: 0.5;
+} */
+
+.drag_and_drop_handler:hover {
+  opacity: 1;
+}
+
+.drag_and_drop_handler {
+  cursor: move;
+  width: 18px;
+  height: 24px;
+  margin-right: 7px;
+  opacity: 0;
+}
+
+.task_item_actions {
+  display: flex;
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  top: 0;
+  right: 4px;
+  right: 4px;
+  margin-top: 10px;
+}
+
+.task_item .task_item_actions > * {
+  display: inline-block;
+  margin-left: 10px;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 1px;
+  cursor: pointer !important;
+  /* opacity: 0; */
+  color: grey !important;
+}
+
+.tooltip svg:hover {
+  background-color: #eee;
+}
+.icon_menu {
+  margin-top: -10px;
+}
+
+/******** Tooltip ************/
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0px 5px 0px 5px;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/******************** POPUP EDIT ***********************/
+
+.popup_edit {
+  position: absolute;
+  /* top: 30px;
+  left: 200px; */
+  cursor: default;
+  z-index: 504;
+  background-color: #fafafa;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
+  border: 1px solid #ddd;
+}
+
+.popup_edit table {
+  border-collapse: collapse;
+  padding: 0;
+  margin: 4px 0;
+  min-width: 250px;
+}
+
+.menu_item {
+  padding: 4px 10px;
+  text-decoration: none !important;
+}
+
+.popup_edit .menu_item_edit > td {
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+.popup_edit td {
+  padding: 8px 10px;
+  margin: 0;
+}
+
+.menu_icon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  justify-content: center;
+  color: gray;
+}
+.menu_wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+td.separator {
+  padding: 4px 0;
+}
+td.separator div {
+  padding: 0;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.menu_label {
+  line-height: 24px;
+}
+
+.popup_edit tr:hover {
+  background-color: #fff;
+  font-weight: bold;
+  width: 245px;
 }
