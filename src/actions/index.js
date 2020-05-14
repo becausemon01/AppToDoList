@@ -6,6 +6,12 @@ export const listAll = () => {
   };
 };
 
+export const onSort = () => {
+  return {
+    type: types.SORT_TASK,
+  };
+};
+
 export const addTask = task => {
   return {
     type: types.ADD_TASK,
@@ -51,11 +57,11 @@ export const deleteTask = id => {
   };
 };
 
-export const updateTask = (task, id) => {
+export const updateTask = (id, task) => {
   return {
     type: types.UPDATE_TASK,
     id,
-    task,
+    payload: task,
   };
 };
 
@@ -70,5 +76,20 @@ export const editTask = task => {
   return {
     type: types.EDIT_TASK,
     task,
+  };
+};
+
+export const dragAndDrop = (result, task) => {
+  return {
+    type: types.DRAG_AND_DROP,
+    task,
+    result,
+  };
+};
+
+export const addProject = project => {
+  return {
+    type: types.ADD_PROJECT,
+    project,
   };
 };

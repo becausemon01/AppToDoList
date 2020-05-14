@@ -1,4 +1,6 @@
+// Libraries
 import * as types from "../constants/ActionTypes";
+import moment from "moment";
 
 // var data = JSON.parse(localStorage.getItem("tasks"));
 var initialState = [];
@@ -15,7 +17,7 @@ var generateID = () => {
   );
 };
 
-var findIndex = (tasks, id) => {
+const findIndex = (tasks, id) => {
   var result = -1;
   tasks.forEach((task, index) => {
     if (task.id === id) result = index;
@@ -23,7 +25,14 @@ var findIndex = (tasks, id) => {
   return result;
 };
 
-var myReducer = (state = initialState, action) => {
+const reorder = (todoList, startIndex, endIndex) => {
+  const result = Array.from(todoList);
+  const [remove] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, remove);
+  return result;
+};
+
+let myReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.LIST_ALL:
       return [...state];
@@ -37,6 +46,9 @@ var myReducer = (state = initialState, action) => {
             id: generateID(),
             name: action.task.name,
             completed: false,
+            priority: action.task.priority,
+            date: moment(new Date()).format("Do"),
+            Project: action.task.project,
           },
         ];
       } else {
@@ -52,11 +64,18 @@ var myReducer = (state = initialState, action) => {
           : todo
       );
     case types.DELETE_TASK:
-      let id = action.id;
-      let index = findIndex(state, id);
+      // let index = findIndex(state, id);
       // return [...state, state.splice(index, 1)];
       return state.filter(todo => todo.id !== action.id);
 
+    // this.props.updateTask({
+    //   name: abc
+    // });
+
+    // this.props.updateTask({
+    //   id:
+    //   priority: abc
+    // });
     case types.UPDATE_TASK:
       // let task = {
       //   id: action.task.id,
@@ -67,15 +86,35 @@ var myReducer = (state = initialState, action) => {
       //   state[indexUdp] = task;
       // }
       // localStorage.setItem("tasks", JSON.stringify(state));
-      console.log(action);
       return state.map(todo =>
-        todo.id === action.task.id
+        todo.id === action.id
           ? {
               ...todo,
-              name: action.task.name,
+              ...action.payload,
+              // name: action.task.name,
             }
           : todo
       );
+    case types.DRAG_AND_DROP:
+      console.log(action.result);
+      const { destination, source } = action.result;
+
+      if (!destination) {
+        return [...state];
+      } else {
+        const todoList = reorder(action.task, source.index, destination.index);
+        return [...todoList];
+      }
+    case types.SORT_TASK:
+      const tasks = [...state];
+
+      tasks.sort((a, b) => {
+        if (a.priority > b.priority) return 1;
+        if (a.priority < b.priority) return -1;
+        else return 0;
+      });
+
+      return [...tasks];
     default:
       return state;
   }

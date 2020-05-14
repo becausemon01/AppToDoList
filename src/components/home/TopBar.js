@@ -22,9 +22,9 @@ class TopBar extends Component {
   render() {
     var { tasks } = this.props;
     var { keyword } = this.state;
-
     var count = keyword.length;
     var gt;
+
     var elmSearch = tasks.map((task, index) => {
       if (keyword.length !== 0) {
         if (task.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1) {
@@ -76,7 +76,7 @@ class TopBar extends Component {
             </svg>
           </a>
           <div id="logo">
-            <a href="#">
+            <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
@@ -117,7 +117,7 @@ class TopBar extends Component {
             </span>
             <span id="before_pie" style={{ display: "none" }} />
             <span id="top_completed_holder">
-              <a href="#completed" className="fixed_pos">
+              <a className="fixed_pos">
                 <span id="top_completed" className="completed_pie">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

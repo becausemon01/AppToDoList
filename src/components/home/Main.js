@@ -1,3 +1,4 @@
+//libraries
 import React, { Component } from "react";
 import CreateTask from "./CreateTask";
 import ListTask from "./ListTask";
@@ -5,6 +6,7 @@ import UpdateTask from "./UpdateTask";
 import { connect } from "react-redux";
 import * as actions from "../../actions/index";
 import display from "../../reducers/display";
+import moment from "moment";
 
 class Main extends Component {
   constructor(props) {
@@ -211,7 +213,7 @@ class Main extends Component {
               <div>
                 <h2 className="section_header">
                   <a>Today</a>
-                  <small>Fri 20 Mar</small>
+                  <small>{moment(new Date()).format("ddd D MMM")}</small>
                 </h2>
               </div>
               <ul className="items day_list ul_today">

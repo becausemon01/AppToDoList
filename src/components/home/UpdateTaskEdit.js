@@ -1,193 +1,108 @@
-//libraries
-import moment from "moment";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
-//component
 import * as action from "../../actions/index";
-import PopupPriority from "../popup/PopupPriority";
-import PopupProject from "../popup/PopupProject";
+import { bindActionCreators } from "redux";
 
-class CreateTask extends Component {
+class UpdateTaskEdit extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      name: "",
-      priority: 4,
-      isOpenPriority: false,
-      isOpenProject: false,
-      x: 0,
-      y: 0,
-      project: "Inbox",
+      id: this.props.task.id,
+      name: this.props.task.name,
     };
   }
+
+  // componentDidMount() {
+  //   console.log(this.props.updateTask);
+  //   console.log(this.props.editTask);
+  //   if (this.props.updateTask) {
+  //     this.setState({
+  //       id: this.props.updateTask.id,
+  //       name: this.props.updateTask.name,
+  //     });
+  //   } else {
+  //     if (this.props.editTask) {
+  //       this.setState({
+  //         id: this.props.editTask.id,
+  //         name: this.props.editTask.name,
+  //       });
+  //     }
+  //   }
+  // }
+
+  // componentWillReceiveProps(nextProp) {
+  //   if (nextProp && nextProp.updateTask) {
+  //     this.setState({
+  //       id: this.props.updateTask.id,
+  //       name: this.props.updateTask.name,
+  //     });
+  //   } else {
+  //     if (nextProp && nextProp.editTask) {
+  //       this.setState({
+  //         id: nextProp.editTask.id,
+  //         name: nextProp.editTask.name,
+  //       });
+  //     }
+  //   }
+  // }
 
   onChange = event => {
     var target = event.target;
     var name = target.name;
     var value = target.value;
-
     this.setState({
       [name]: value,
     });
   };
 
-  onSubmit = event => {
-    event.preventDefault();
-    // this.props.onSubmit(this.state);
-    this.props.onAddTask(this.state);
+  // onSave = event => {
+  //   event.preventDefault();
+  //   this.props.onSaveTask(this.state.id, { name: this.state.name });
+  //   this.props.onUpdate(this.state);
+  //   this.onCloseFormUpdate();
+  // };
 
+  onSave = e => {
+    e.preventDefault();
+    this.props.onSaveTask(this.state.id, { name: this.state.name });
+    this.onCloseFormEdit();
     this.onClear();
   };
 
-  onCloseForm = () => {
-    this.props.onCloseForm();
+  onCloseFormEdit = () => {
+    this.props.onCloseFormEdit();
   };
-
   onClear = () => {
     this.setState({
       name: "",
-      priority: 4,
-      isOpenPriority: false,
-      project: "Inbox",
-    });
-  };
-
-  onSetState = state => {
-    this.setState({
-      priority: state.priority,
-    });
-  };
-
-  onSelectProject = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    const { clientY } = e;
-
-    this.setState({
-      isOpenProject: !this.state.isOpenProject,
-      isOpenPriority: false,
-      x: 930,
-      y: clientY,
-    });
-  };
-
-  onSetPriority = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    const { clientY } = e;
-
-    this.setState({
-      isOpenPriority: !this.state.isOpenPriority,
-      isOpenProject: false,
-      x: 930,
-      y: clientY,
-    });
-  };
-
-  onClosePopup = () => {
-    this.setState({
-      isOpenProject: false,
-    });
-  };
-
-  onClickWindow = e => {
-    this.setState({
-      isOpenProject: false,
-      isOpenPriority: false,
-    });
-  };
-
-  componentDidMount() {
-    window.addEventListener("click", this.onClickWindow);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("click", this.onClickWindow);
-  }
-
-  onGetNameProject = project => {
-    this.setState({
-      project,
     });
   };
 
   render() {
-    let { isOpenPriority, priority, isOpenProject } = this.state;
-
-    const myStyle = {
-      // top: `${this.state.y + 17}px`,
-      left: `${this.state.x}px`,
-      zIndex: 10000,
-    };
-
-    const stylePriority = {
-      color:
-        priority === 1
-          ? "red"
-          : priority === 2
-          ? "orange"
-          : priority === 3
-          ? "blue"
-          : "",
-    };
-
-    let elmPriority = isOpenPriority && (
-      <div
-        className="dialog_content"
-        style={myStyle}
-        onClick={e => e.stopPropagation()}
-      >
-        <PopupPriority
-          onSetPriority={this.onSetState}
-          priority={this.state.priority}
-        />
-      </div>
-    );
-
-    let elmProject = isOpenProject && (
-      <div
-        className="dialog_content"
-        style={myStyle}
-        onClick={e => e.stopPropagation()}
-      >
-        <PopupProject
-          project={this.state.project}
-          onClosePopup={this.onClosePopup}
-          onGetNameProject={this.onGetNameProject}
-        ></PopupProject>{" "}
-      </div>
-    );
-
+    console.log(this.props.task);
     return (
       <ul>
-        <li className="listTask">
-          <form className="listTask_editor" onSubmit={this.onSubmit}>
+        <li className="listTaskUpdate">
+          <form className="listTask_editor" onSubmit={this.onSave}>
             <div className="listTask_top">
               <div className="listTask_input">
                 <input
-                  type="text text_box"
-                  placeholder="e.g. Go to school 7am "
-                  autoComplete="off"
-                  spellCheck="false"
-                  className="lst_input"
+                  type="text"
+                  placeholder="e.g"
+                  className="lst_input1"
                   name="name"
                   value={this.state.name}
                   onChange={this.onChange}
-                />
+                ></input>
               </div>
               <div className="listTask_date">
-                <button className="btn_date">
-                  {moment(new Date()).format("D MMM")}
-                </button>
+                <button className="btn_date">26 Mar</button>
               </div>
             </div>
 
             <div className="btn_editor">
               <div className="iteam_actions">
                 <button
-                  onClick={this.onSelectProject}
                   type="button"
                   className="iteam_action"
                   id="dropdow_select_1"
@@ -242,7 +157,6 @@ class CreateTask extends Component {
                   </span>
                 </button>
                 <button
-                  onClick={this.onSetPriority}
                   type="button"
                   className="iteam_action"
                   id="dropdow_select_3"
@@ -254,7 +168,6 @@ class CreateTask extends Component {
                   <span className="tooltip_warper">
                     <span>
                       <svg
-                        style={stylePriority}
                         data-svgs-path="sm1/priority_flag.svg"
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -295,30 +208,38 @@ class CreateTask extends Component {
                 </button>
               </div>
               <button type="submit" className="item_editor_submit">
-                Add Task
+                Save
               </button>
               <button
                 type="button"
                 className="cancel"
-                onClick={this.onCloseForm}
+                onClick={this.onCloseFormEdit}
               >
                 Cancel
               </button>
             </div>
             <div className="icon_editor"></div>
           </form>
-          <div>{elmPriority}</div>
-          <div>{elmProject}</div>
         </li>
       </ul>
     );
   }
 }
 
-const mapDispatchToProps = {
-  onAddTask: action.addTask,
+// const mapStateToProps = state => {
+//   return {
+//     editTask: state.task,
+//   };
+// };
 
-  onCloseForm: action.closeForm,
+const mapDispatchToProps = {
+  onSaveTask: action.updateTask,
 };
 
-export default connect(null, mapDispatchToProps)(CreateTask);
+// const mapDispatchToProps = {
+
+//         onCloseFormUpdate : action.closeFormUpdate
+
+// };
+
+export default connect(null, mapDispatchToProps)(UpdateTaskEdit);

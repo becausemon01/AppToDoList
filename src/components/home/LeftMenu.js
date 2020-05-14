@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import moment from "moment";
 
 class LeftMenu extends Component {
   render() {
@@ -48,7 +50,7 @@ class LeftMenu extends Component {
                         fontWeight={500}
                       >
                         <tspan x={8} y={15} textAnchor="middle">
-                          20
+                          {moment(new Date()).format("D")}
                         </tspan>
                       </text>
                     </g>
@@ -204,4 +206,9 @@ class LeftMenu extends Component {
     );
   }
 }
-export default LeftMenu;
+const mapStateToProps = state => {
+  return {
+    tasks: state.tasks,
+  };
+};
+export default connect(mapStateToProps, null)(LeftMenu);

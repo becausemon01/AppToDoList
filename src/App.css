@@ -209,7 +209,7 @@ a:-webkit-any-link {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-::-webkit-input-placeholder {
+.quick_find::-webkit-input-placeholder {
   color: white;
 }
 
@@ -328,7 +328,7 @@ small {
   border: hidden;
 }
 .panel_toggle_icon {
-  width: 190px;
+  width: 230px;
 
   font-weight: 600;
 }
@@ -487,7 +487,7 @@ li.listTask .listTask_editor {
 }
 
 .listTask_input {
-  line-height: 21px;
+  /* line-height: 21px; */
   flex-grow: 1;
   border: 0;
   outline: 0;
@@ -554,6 +554,10 @@ li.listTask .listTask_editor {
   color: gray;
   cursor: pointer;
 }
+.iteam_action svg:hover {
+  background-color: #ddd;
+}
+
 .tooltip_warper {
   display: inline-block;
   max-width: 100%;
@@ -623,7 +627,7 @@ ul {
   font-size: 14px;
   position: relative;
   border-radius: 3px;
-  margin-left: -35px;
+  margin-left: -65px;
   display: flex;
 }
 .task_item_detail {
@@ -662,12 +666,14 @@ ul {
 }
 
 .content_task {
+  width: 625px;
   cursor: text;
   -webkit-user-select: text !important;
   user-select: text !important;
   line-height: 21px;
   position: relative;
-  margin-top: 2px;
+  margin-top: 4px;
+  display: inline-block;
 }
 .content_task_text {
   cursor: text;
@@ -1005,8 +1011,8 @@ button {
   opacity: 0.5;
 } */
 
-.drag_and_drop_handler:hover {
-  opacity: 1;
+.task_item div:hover .drag_and_drop_handler {
+  opacity: 0.5;
 }
 
 .drag_and_drop_handler {
@@ -1026,6 +1032,10 @@ button {
   right: 4px;
   right: 4px;
   margin-top: 10px;
+  opacity: 0;
+}
+.task_item:hover > .task_item_actions {
+  opacity: 1;
 }
 
 .task_item .task_item_actions > * {
@@ -1035,8 +1045,6 @@ button {
   height: 24px !important;
   border-radius: 1px;
   cursor: pointer !important;
-  /* opacity: 0; */
-  color: grey !important;
 }
 
 .tooltip svg:hover {
@@ -1134,4 +1142,308 @@ td.separator div {
   background-color: #fff;
   font-weight: bold;
   width: 245px;
+}
+
+.schedule_holder .desc {
+  display: block;
+  font-size: 12px;
+  color: #202020;
+  padding: 0;
+  margin-bottom: 1em;
+}
+
+.schedule_holder .icon_list {
+  padding: 5px 0px;
+  display: flex;
+}
+
+.icon_scheduler {
+  text-decoration: none;
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+}
+
+.no_hover {
+  line-height: normal;
+}
+
+.schedule_holder .icon_list > :first-child {
+  margin-left: 0px;
+}
+
+.schedule_holder .icon_list > * {
+  margin-left: 12px;
+}
+
+.schedule_holder .icon_list .icon_scheduler {
+  border-radius: 3px;
+  height: 28px;
+  width: 28px;
+}
+.schedule_holder .icon_list .icon_scheduler:hover {
+  background-color: #f3f3f3;
+  text-decoration: none;
+}
+
+.schedule_holder .icon_list .icon_suggestion {
+  color: #246fe0;
+}
+
+.schedule_holder .icon_list .icon_today {
+  color: #058527;
+}
+.schedule_holder .icon_list .icon_postpone {
+  color: orange;
+}
+.schedule_holder .icon_list .icon_next_week {
+  color: purple;
+}
+
+.schedule_holder .icon_list .icon_more {
+  color: black;
+}
+
+.menu_buttons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu_buttons li.lbl {
+  color: #202020;
+  margin-bottom: 1em;
+}
+
+.menu_buttons li.priorities {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.menu_buttons .priorities > :first-child {
+  margin-left: 0px;
+}
+.menu_buttons .priorities > * {
+  margin-left: 15px;
+}
+
+.priorities a {
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  height: 24px;
+  width: 24px;
+  padding: 1px;
+}
+
+.menu_buttons .priorities .a_priority:hover {
+  background-color: #ddd;
+}
+
+/*88888888888 ---------------------------------------------------------------*/
+.edit_updateTask {
+  margin-top: 30px;
+  margin-left: -20px;
+}
+
+/*-------------------PopupPriority-------------------------------------------------------------------------------*/
+.dialog_content {
+  position: absolute;
+  width: 250px;
+  margin-top: -10px;
+  /* left: 700px; */
+}
+
+.dialog_nose {
+  position: absolute;
+  border: 6px solid transparent;
+  height: 0;
+  width: 0;
+  border-bottom-color: #ddd;
+  left: 178px;
+  margin-top: -12px;
+}
+
+.dropdown_set_priority {
+  border-radius: 6px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dropdown_set_priority ul {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown_set_priority li {
+  cursor: pointer;
+}
+
+.priority_pick_item {
+  margin: 0 10px;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+}
+
+.priority_item_icon {
+  width: 24px;
+  height: 24px;
+}
+
+.priority_item_name {
+  flex-grow: 1;
+  margin: 0 10px;
+  text-overflow: ellipsis;
+  height: 24px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.priority_item_checkmark {
+  width: 14px;
+  height: 14px;
+  color: red;
+}
+
+.dropdown_set_priority li:hover {
+  background-color: #eee;
+}
+
+/*------- Popup Project -------------------------------------------------------------------------------*/
+
+.dropdown_set_project {
+  border-radius: 6px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dropdown_set_project ul {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown_set_project li {
+  cursor: pointer;
+}
+
+.project_pick_item {
+  margin: 0 10px;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+}
+
+.project_item_icon {
+  color: rgb(184, 184, 184);
+}
+
+.project_item_icon::before {
+  content: "";
+  margin: 7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: currentColor;
+  display: block;
+}
+
+.project_item_name {
+  flex-grow: 1;
+  margin: 0 10px;
+  text-overflow: ellipsis;
+  height: 24px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.project_item_checkmark {
+  width: 14px;
+  height: 14px;
+  color: red;
+}
+
+.dropdown_set_priority li:hover {
+  background-color: #eee;
+}
+
+.dropdown_select_input {
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown_select_input input {
+  border: 0;
+  line-height: 25px;
+  flex-grow: 1;
+  outline: 0;
+}
+
+.project_picker_emty {
+  line-height: 32px;
+}
+
+.project_picker_emty > span {
+  color: gray;
+  padding: 0 10px;
+}
+
+.project_picker_emty button {
+  display: flex;
+  align-items: center;
+  padding: 4px 10px;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.project_picker_emty button:hover {
+  background-color: #eee;
+}
+
+.project_picker_emty svg {
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.option_project:hover {
+  background-color: #eee;
+}
+
+/***88888888888888888  Item - Project-------------------------*/
+.task_item_detail_bottom {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  /* margin-top: 4px; */
+  float: right;
+}
+
+.column_project {
+  font-size: 13px;
+  text-align: right;
+  padding: 0 !important;
+}
+
+.project_item {
+  display: flex;
+  cursor: pointer;
+  color: gray;
+}
+
+.project_item_name {
+  padding: 0 2px;
+  display: flex;
+  margin: 0 2px;
 }

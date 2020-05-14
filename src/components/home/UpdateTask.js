@@ -55,7 +55,7 @@ class UpdateTask extends Component {
 
   onSave = event => {
     event.preventDefault();
-    this.props.onSaveTask(this.state);
+    this.props.onSaveTask(this.state.id, { name: this.state.name });
     this.props.onUpdate(this.state);
     this.onCloseFormUpdate();
   };
@@ -80,7 +80,7 @@ class UpdateTask extends Component {
               <div className="listTask_input">
                 <input
                   type="text"
-                  placeholder="abc"
+                  placeholder="e.g. Go to school 7am"
                   className="lst_input1"
                   name="name"
                   value={this.state.name}
