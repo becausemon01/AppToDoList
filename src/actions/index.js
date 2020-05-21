@@ -93,3 +93,10 @@ export const addProject = project => {
     project,
   };
 };
+
+export const getValue = value => {
+  return {
+    type: types.GET_VALUE,
+    payload: value,
+  };
+};

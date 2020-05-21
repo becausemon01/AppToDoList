@@ -4,6 +4,7 @@ import display from "./display";
 import search from "./search";
 import task from "./task";
 import projects from "./projects";
+import value from "./value";
 
 const myReducer = combineReducers({
   tasks,
@@ -11,6 +12,7 @@ const myReducer = combineReducers({
   search,
   task,
   projects,
+  value,
 });
 
 export default myReducer;
