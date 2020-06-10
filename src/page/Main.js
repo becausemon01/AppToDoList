@@ -40,8 +40,6 @@ class Main extends Component {
     render() {
         let { isDisplay, value } = this.props;
 
-        console.log(value);
-
         var elmCreateTask = isDisplay ? (
             <CreateTask
                 onSubmit={this.onSubmit}
@@ -50,8 +48,6 @@ class Main extends Component {
         ) : (
             ""
         );
-
-        const nameHeader = value.value === "Inbox" ? "Inbox" : "Today";
 
         return (
             <div id="content">

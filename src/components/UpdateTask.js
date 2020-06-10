@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions/index";
-import { bindActionCreators } from "redux";
 
 class UpdateTask extends Component {
     constructor(props) {
@@ -28,22 +27,6 @@ class UpdateTask extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProp) {
-        if (nextProp && nextProp.updateTask) {
-            this.setState({
-                id: this.props.updateTask.id,
-                name: this.props.updateTask.name,
-            });
-        } else {
-            if (nextProp && nextProp.editTask) {
-                this.setState({
-                    id: nextProp.editTask.id,
-                    name: nextProp.editTask.name,
-                });
-            }
-        }
-    }
-
     onChange = event => {
         var target = event.target;
         var name = target.name;
@@ -56,7 +39,7 @@ class UpdateTask extends Component {
     onSave = event => {
         event.preventDefault();
         this.props.onSaveTask(this.state.id, { name: this.state.name });
-        this.props.onUpdate(this.state);
+        // this.props.onUpdate(this.state);
         this.onCloseFormUpdate();
     };
 
@@ -203,6 +186,7 @@ class UpdateTask extends Component {
                                 type="submit"
                                 className="item_editor_submit"
                                 onClick={this.onSave}
+                                disabled={!this.state.name}
                             >
                                 Save
                             </button>
@@ -230,7 +214,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     onSaveTask: actions.updateTask,
-    onEditTask: actions.editTask,
+    // onEditTask: actions.editTask,
 };
 
 // const mapDispatchToProps = {

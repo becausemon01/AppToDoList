@@ -6,7 +6,18 @@ import moment from "moment";
 import * as fn from "../function/function";
 
 // var data = JSON.parse(localStorage.getItem("tasks"));
-var initialState = [];
+var initialState = [
+    {
+        id: fn.getId(),
+        name: "An tru",
+        completed: false,
+        priority: 4,
+        date: "20 May 2020",
+        Project: "Inbox",
+        idProject: fn.getId(),
+        deadLine: "25 May 2020",
+    },
+];
 
 let myReducer = (state = initialState, action) => {
     switch (action.type) {

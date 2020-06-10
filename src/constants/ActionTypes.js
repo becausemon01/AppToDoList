@@ -13,4 +13,5 @@ export const SAVE_TASK = "SAVE_TASK";
 export const DRAG_AND_DROP = "DRAG_AND_DROP";
 export const SORT_TASK = "SORT_TASK";
 export const ADD_PROJECT = "ADD_PROJECT";
+export const UPDATE_PROJECT = "UPDATE_PROJECT";
 export const GET_VALUE = "GET_VALUE";

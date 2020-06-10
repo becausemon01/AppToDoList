@@ -28,6 +28,12 @@ var myReducer = (state = initialState, action) => {
                     color: action.project.color,
                 },
             ];
+        case types.UPDATE_PROJECT:
+            return state.map(project =>
+                project.id === action.id
+                    ? { ...project, ...action.payload }
+                    : project
+            );
         default:
             return state;
     }

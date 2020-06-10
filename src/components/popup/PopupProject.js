@@ -60,6 +60,7 @@ class PopupProject extends Component {
     render() {
         let { isNotFind, name } = this.state;
         let { projects } = this.props;
+        console.log(this.props.project);
         let compare = name.length;
 
         let elm_checker = (

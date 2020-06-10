@@ -111,7 +111,7 @@ class ListTask extends Component {
             );
         });
 
-        var elmTaskInbox = tasks.map((task, index) => {
+        let elmTaskInbox = tasks.map((task, index) => {
             return (
                 task.Project === value.value &&
                 (task.id === this.state.idUpdate &&

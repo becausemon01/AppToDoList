@@ -14,9 +14,7 @@ const s4 = () => {
 };
 
 export const getId = () => {
-    return (
-        "tan" + "_" + s4() + s4() + "_" + s4() + "_" + s4() + s4() + s4() + s4()
-    );
+    return "tan_" + s4() + s4() + "_" + s4() + "_" + s4() + s4() + s4() + s4();
 };
 
 export const reOder = (todoList, startIndex, endIndex) => {
@@ -42,6 +40,7 @@ export const getInForProject = (projects, id) => {
         if (project.id === id) {
             result = project;
         }
+        return { ...project };
     });
     return result;
 };

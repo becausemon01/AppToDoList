@@ -28,6 +28,13 @@ const setDay = date => {
 };
 
 class PopupEdit extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isOpenPopupProject: false,
+        };
+    }
+
     onDelete = () => {
         this.props.onDelete(this.props.task.id);
 
@@ -74,8 +81,38 @@ class PopupEdit extends Component {
         this.props.onGetValue({ value: this.props.task.Project });
     };
 
+    onOpenPopupProject = () => {
+        this.setState({
+            // isOpenPopupProject: !this.state.isOpenPopupProject,
+            isOpenPopupProject: true,
+        });
+    };
+
+    onGetNameProject = (name, id) => {
+        console.log(name, id);
+        this.props.onUpdate(this.props.task.id, {
+            Project: name,
+            idProject: id,
+        });
+
+        this.setState({
+            isOpenPopupProject: false,
+        });
+    };
+
+    onClosePopup = () => {
+        this.setState({
+            isOpenPopupProject: false,
+        });
+    };
+
     render() {
-        const elmProject = <PopupProject />;
+        const elmProject = (
+            <PopupProject
+                onGetNameProject={this.onGetNameProject}
+                onClosePopup={this.onClosePopup}
+            />
+        );
 
         return (
             <div>
@@ -457,8 +494,11 @@ class PopupEdit extends Component {
                                 </div>
                             </td>
                         </tr>
-                        {elmProject}
-                        <tr className="menu_item_move_task menu_item">
+
+                        <tr
+                            className="menu_item_move_task menu_item"
+                            onClick={this.onOpenPopupProject}
+                        >
                             <td>
                                 <div className="menu_wrapper">
                                     <span className="menu_icon">
@@ -483,6 +523,16 @@ class PopupEdit extends Component {
                                     <div className="menu_label">
                                         Move to project
                                     </div>
+                                </div>
+                                <div
+                                    style={{
+                                        position: "absolute",
+                                        marginLeft: "-10px",
+                                        width: "100%",
+                                    }}
+                                >
+                                    {this.state.isOpenPopupProject &&
+                                        elmProject}
                                 </div>
                             </td>
                         </tr>
@@ -610,5 +660,6 @@ const mapDispatchToProps = {
     onUpdate: actions.updateTask,
     onCloseForm: actions.closeForm,
     onGetValue: actions.getValue,
+    onUpdateProject: actions.updateProject,
 };
 export default connect(null, mapDispatchToProps)(PopupEdit);
